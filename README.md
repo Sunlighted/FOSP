@@ -94,8 +94,7 @@ cd ..
 ```
 
 ### Step5: Data
-Find the dataset in '.../FOSP/data/'
-Download the dataset on [Google Drive](https://drive.google.com/drive/folders/10oXr8lImy2ngjQgpxC5kahkz0JQRtqji?usp=drive_link)
+Download the dataset on [Google Drive](https://drive.google.com/drive/folders/10oXr8lImy2ngjQgpxC5kahkz0JQRtqji?usp=drive_link).
 Before training, please check './FOSP/embodied/replay/saver.py' and replace the self.load_dir with the path of the data.
 
 ### Step6: Offline Training
