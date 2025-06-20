@@ -108,7 +108,7 @@ python FOSP/train_sd.py --configs safedreamer --method safedreamer --run.script 
 
 ```
 
-### Step6: Online Fine-tuning
+### Step7: Online Fine-tuning
 
 ```sh
 # FOSP-online fine-tuning:
