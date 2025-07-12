@@ -1,7 +1,7 @@
 
 <br>
 <p align="center">
-<h1 align="center"><img align="center" width="6.5%"><strong>FOSP: Fine-tuning Offline Safe Policy through World Models
+<h1 align="center"><img align="center" width="6.5%"><strong>FOSP: Fine-tuning Offline Safe Policy through World Models [ICLR 2025]
 </strong></h1>
   <p align="center">
     <a href='https://scholar.google.com/citations?user=uSpiLrMAAAAJ&hl=en' target='_blank'>Chenyang Cao</a>&emsp;
