@@ -38,7 +38,7 @@ If you find our work helpful, please cite:
 @inproceedings{
 fosp,
 title={FOSP: Fine-tuning Offline Safe Policy through World Models},
-author={Weidong Huang and Jiaming Ji and Borong Zhang and Chunhe Xia and Yaodong Yang},
+author={Chenyang Cao, Yucheng Xin, Silang Wu, Longxiang He, Zichen Yan, Junbo Tan and Xueqian Wang},
 booktitle={The 13th International Conference on Learning Representations},
 year={2025},
 url={https://openreview.net/pdf?id=dbuFJg7eaw}
