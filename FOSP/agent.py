@@ -370,13 +370,13 @@ class ImagSafeActorCritic(nj.Module):
     self.online = online
 
     self.pre_actor = nets.MLP(
-        name='actor',
+        name='pre_actor',
         dims='deter',
         shape=act_space.shape,
         **config.actor,
         dist=config.actor_dist_disc if disc else config.actor_dist_cont
     )
-    self.pre_opt = jaxutils.Optimizer(name='actor_opt', **config.actor_opt)
+    self.pre_opt = jaxutils.Optimizer(name='pre_actor_opt', **config.actor_opt)
 
   def initial(self, batch_size):
     return {}
@@ -384,6 +384,16 @@ class ImagSafeActorCritic(nj.Module):
   def init_actor_params(self, dummy_shape):
     dummy_input = jnp.zeros(dummy_shape)
     _ = self.actor(dummy_input)
+
+  def copy_actor_to_pre_actor(self):
+    """Copy actor params into the pre_actor slot (call once after loading offline ckpt)."""
+    actor_params = self.actor.getm()
+    actor_prefix = self.actor.path + '/'
+    pre_actor_prefix = self.pre_actor.path + '/'
+    self.putm({
+        pre_actor_prefix + k[len(actor_prefix):]: v
+        for k, v in actor_params.items()
+    })
 
   def policy(self, state, carry):
     if self.online == True:

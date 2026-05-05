@@ -154,6 +154,15 @@ def train_eval_online(
   checkpoint.eval_replay = eval_replay
   print('load in')
   checkpoint.load(args.from_checkpoint, keys=['agent'])
+  # The offline checkpoint has no pre_actor keys. Copy actor → pre_actor so the
+  # frozen baseline starts from the offline-trained weights, not random values.
+  actor_to_pre = {
+      k.replace('/safe_ac/actor/', '/safe_ac/pre_actor/', 1): v
+      for k, v in agent.varibs.items()
+      if '/safe_ac/actor/' in k
+  }
+  agent.varibs = {**agent.varibs, **actor_to_pre}
+  agent.sync()
   checkpoint.load_or_save()
   should_save(step)  # Register that we jused saved.
 
